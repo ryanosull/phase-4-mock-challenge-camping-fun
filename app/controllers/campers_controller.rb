@@ -9,7 +9,7 @@ class CampersController < ApplicationController
     def show
         camper = Camper.find_by(id: params[:id])
         if camper
-            render json: camper, except: [:created_at, :updated_at], include: [:activities => {except: [:created_at, :updated_at] } ] status: :ok
+            render json: camper, except: [:created_at, :updated_at], include: [:activities => {except: [:created_at, :updated_at] } ], status: :ok #added last comma
         else
             render json: {errors: ['Camper likely be dead']}, status: :not_found
         end
